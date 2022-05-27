@@ -1,0 +1,37 @@
+
+State Machine - |pbl2_sd|transmitter:transmitter_0|state
+Name state.START state.STOP state.DATA 
+state.START 0 0 0 
+state.DATA 1 0 1 
+state.STOP 1 1 0 
+
+State Machine - |pbl2_sd|dht11:dht11_0|state
+Name state.STOP state.DATA state.SYNC_1 state.SYNC_0 state.RESPONCE state.START_1 state.START_0 state.IDLE state.ERROR 
+state.IDLE 0 0 0 0 0 0 0 0 0 
+state.START_0 0 0 0 0 0 0 1 1 0 
+state.START_1 0 0 0 0 0 1 0 1 0 
+state.RESPONCE 0 0 0 0 1 0 0 1 0 
+state.SYNC_0 0 0 0 1 0 0 0 1 0 
+state.SYNC_1 0 0 1 0 0 0 0 1 0 
+state.DATA 0 1 0 0 0 0 0 1 0 
+state.STOP 1 0 0 0 0 0 0 1 0 
+state.ERROR 0 0 0 0 0 0 0 1 1 
+
+State Machine - |pbl2_sd|sensor_controller:sensor_controller_0|state
+Name state.END state.BYTE_2 state.BYTE_1 state.START_DATA state.STORE_DATA state.WAIT_SENSOR state.WAIT_COMMAND state.WAIT_ADDRESS state.AWAKE state.SLEEP 
+state.SLEEP 0 0 0 0 0 0 0 0 0 0 
+state.AWAKE 0 0 0 0 0 0 0 0 1 1 
+state.WAIT_ADDRESS 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_COMMAND 0 0 0 0 0 0 1 0 0 1 
+state.WAIT_SENSOR 0 0 0 0 0 1 0 0 0 1 
+state.STORE_DATA 0 0 0 0 1 0 0 0 0 1 
+state.START_DATA 0 0 0 1 0 0 0 0 0 1 
+state.BYTE_1 0 0 1 0 0 0 0 0 0 1 
+state.BYTE_2 0 1 0 0 0 0 0 0 0 1 
+state.END 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |pbl2_sd|receiver:receiver_0|state
+Name state.START state.STOP state.DATA 
+state.START 0 0 0 
+state.DATA 1 0 1 
+state.STOP 1 1 0 

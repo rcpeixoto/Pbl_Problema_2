@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri May 27 16:51:47 2022
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : pbl2_sd
+Top-level Entity Name : pbl2_sd
+Family : Cyclone IV E
+Total logic elements : 670
+    Total combinational functions : 627
+    Dedicated logic registers : 337
+Total registers : 337
+Total pins : 5
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

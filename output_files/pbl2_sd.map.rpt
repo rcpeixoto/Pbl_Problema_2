@@ -1,0 +1,532 @@
+Analysis & Synthesis report for pbl2_sd
+Fri May 27 16:51:47 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |pbl2_sd|transmitter:transmitter_0|state
+  9. State Machine - |pbl2_sd|dht11:dht11_0|state
+ 10. State Machine - |pbl2_sd|sensor_controller:sensor_controller_0|state
+ 11. State Machine - |pbl2_sd|receiver:receiver_0|state
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: clock_divider:divider_0
+ 17. Parameter Settings for User Entity Instance: receiver:receiver_0
+ 18. Parameter Settings for User Entity Instance: sensor_controller:sensor_controller_0
+ 19. Parameter Settings for User Entity Instance: clock_divider1mhz:comb_3
+ 20. Parameter Settings for User Entity Instance: dht11:dht11_0
+ 21. Parameter Settings for User Entity Instance: transmitter:transmitter_0
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 27 16:51:47 2022       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; pbl2_sd                                     ;
+; Top-level Entity Name              ; pbl2_sd                                     ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 670                                         ;
+;     Total combinational functions  ; 627                                         ;
+;     Dedicated logic registers      ; 337                                         ;
+; Total registers                    ; 337                                         ;
+; Total pins                         ; 5                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE30F23C7       ;                    ;
+; Top-level entity name                                            ; pbl2_sd            ; pbl2_sd            ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; pbl2_sd.v                        ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/pbl2_sd.v           ;         ;
+; clock_divider.v                  ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/clock_divider.v     ;         ;
+; clock_divider1mhz.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/clock_divider1mhz.v ;         ;
+; dht11.v                          ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/dht11.v             ;         ;
+; receiver.v                       ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/receiver.v          ;         ;
+; transmitter.v                    ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/transmitter.v       ;         ;
+; sensor_controller.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/pbl2_sd/sensor_controller.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                      ;
++---------------------------------------------+------------------------------------+
+; Resource                                    ; Usage                              ;
++---------------------------------------------+------------------------------------+
+; Estimated Total logic elements              ; 670                                ;
+;                                             ;                                    ;
+; Total combinational functions               ; 627                                ;
+; Logic element usage by number of LUT inputs ;                                    ;
+;     -- 4 input functions                    ; 275                                ;
+;     -- 3 input functions                    ; 48                                 ;
+;     -- <=2 input functions                  ; 304                                ;
+;                                             ;                                    ;
+; Logic elements by mode                      ;                                    ;
+;     -- normal mode                          ; 418                                ;
+;     -- arithmetic mode                      ; 209                                ;
+;                                             ;                                    ;
+; Total registers                             ; 337                                ;
+;     -- Dedicated logic registers            ; 337                                ;
+;     -- I/O registers                        ; 0                                  ;
+;                                             ;                                    ;
+; I/O pins                                    ; 5                                  ;
+;                                             ;                                    ;
+; Embedded Multiplier 9-bit elements          ; 0                                  ;
+;                                             ;                                    ;
+; Maximum fan-out node                        ; clock_divider:divider_0|clk_9600hz ;
+; Maximum fan-out                             ; 171                                ;
+; Total fan-out                               ; 2846                               ;
+; Average fan-out                             ; 2.92                               ;
++---------------------------------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Entity Name       ; Library Name ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+-------------------+--------------+
+; |pbl2_sd                                   ; 627 (0)             ; 337 (0)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |pbl2_sd                                       ; pbl2_sd           ; work         ;
+;    |clock_divider1mhz:comb_3|              ; 39 (39)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|clock_divider1mhz:comb_3              ; clock_divider1mhz ; work         ;
+;    |clock_divider:divider_0|               ; 42 (42)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|clock_divider:divider_0               ; clock_divider     ; work         ;
+;    |dht11:dht11_0|                         ; 265 (264)           ; 108 (108)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|dht11:dht11_0                         ; dht11             ; work         ;
+;       |tris:tris_0|                        ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|dht11:dht11_0|tris:tris_0             ; tris              ; work         ;
+;    |receiver:receiver_0|                   ; 93 (93)             ; 43 (43)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|receiver:receiver_0                   ; receiver          ; work         ;
+;    |sensor_controller:sensor_controller_0| ; 112 (112)           ; 92 (92)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|sensor_controller:sensor_controller_0 ; sensor_controller ; work         ;
+;    |transmitter:transmitter_0|             ; 76 (76)             ; 36 (36)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pbl2_sd|transmitter:transmitter_0             ; transmitter       ; work         ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------+
+; State Machine - |pbl2_sd|transmitter:transmitter_0|state ;
++-------------+-------------+------------+-----------------+
+; Name        ; state.START ; state.STOP ; state.DATA      ;
++-------------+-------------+------------+-----------------+
+; state.START ; 0           ; 0          ; 0               ;
+; state.DATA  ; 1           ; 0          ; 1               ;
+; state.STOP  ; 1           ; 1          ; 0               ;
++-------------+-------------+------------+-----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |pbl2_sd|dht11:dht11_0|state                                                                                                       ;
++----------------+------------+------------+--------------+--------------+----------------+---------------+---------------+------------+-------------+
+; Name           ; state.STOP ; state.DATA ; state.SYNC_1 ; state.SYNC_0 ; state.RESPONCE ; state.START_1 ; state.START_0 ; state.IDLE ; state.ERROR ;
++----------------+------------+------------+--------------+--------------+----------------+---------------+---------------+------------+-------------+
+; state.IDLE     ; 0          ; 0          ; 0            ; 0            ; 0              ; 0             ; 0             ; 0          ; 0           ;
+; state.START_0  ; 0          ; 0          ; 0            ; 0            ; 0              ; 0             ; 1             ; 1          ; 0           ;
+; state.START_1  ; 0          ; 0          ; 0            ; 0            ; 0              ; 1             ; 0             ; 1          ; 0           ;
+; state.RESPONCE ; 0          ; 0          ; 0            ; 0            ; 1              ; 0             ; 0             ; 1          ; 0           ;
+; state.SYNC_0   ; 0          ; 0          ; 0            ; 1            ; 0              ; 0             ; 0             ; 1          ; 0           ;
+; state.SYNC_1   ; 0          ; 0          ; 1            ; 0            ; 0              ; 0             ; 0             ; 1          ; 0           ;
+; state.DATA     ; 0          ; 1          ; 0            ; 0            ; 0              ; 0             ; 0             ; 1          ; 0           ;
+; state.STOP     ; 1          ; 0          ; 0            ; 0            ; 0              ; 0             ; 0             ; 1          ; 0           ;
+; state.ERROR    ; 0          ; 0          ; 0            ; 0            ; 0              ; 0             ; 0             ; 1          ; 1           ;
++----------------+------------+------------+--------------+--------------+----------------+---------------+---------------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |pbl2_sd|sensor_controller:sensor_controller_0|state                                                                                                                         ;
++--------------------+-----------+--------------+--------------+------------------+------------------+-------------------+--------------------+--------------------+-------------+-------------+
+; Name               ; state.END ; state.BYTE_2 ; state.BYTE_1 ; state.START_DATA ; state.STORE_DATA ; state.WAIT_SENSOR ; state.WAIT_COMMAND ; state.WAIT_ADDRESS ; state.AWAKE ; state.SLEEP ;
++--------------------+-----------+--------------+--------------+------------------+------------------+-------------------+--------------------+--------------------+-------------+-------------+
+; state.SLEEP        ; 0         ; 0            ; 0            ; 0                ; 0                ; 0                 ; 0                  ; 0                  ; 0           ; 0           ;
+; state.AWAKE        ; 0         ; 0            ; 0            ; 0                ; 0                ; 0                 ; 0                  ; 0                  ; 1           ; 1           ;
+; state.WAIT_ADDRESS ; 0         ; 0            ; 0            ; 0                ; 0                ; 0                 ; 0                  ; 1                  ; 0           ; 1           ;
+; state.WAIT_COMMAND ; 0         ; 0            ; 0            ; 0                ; 0                ; 0                 ; 1                  ; 0                  ; 0           ; 1           ;
+; state.WAIT_SENSOR  ; 0         ; 0            ; 0            ; 0                ; 0                ; 1                 ; 0                  ; 0                  ; 0           ; 1           ;
+; state.STORE_DATA   ; 0         ; 0            ; 0            ; 0                ; 1                ; 0                 ; 0                  ; 0                  ; 0           ; 1           ;
+; state.START_DATA   ; 0         ; 0            ; 0            ; 1                ; 0                ; 0                 ; 0                  ; 0                  ; 0           ; 1           ;
+; state.BYTE_1       ; 0         ; 0            ; 1            ; 0                ; 0                ; 0                 ; 0                  ; 0                  ; 0           ; 1           ;
+; state.BYTE_2       ; 0         ; 1            ; 0            ; 0                ; 0                ; 0                 ; 0                  ; 0                  ; 0           ; 1           ;
+; state.END          ; 1         ; 0            ; 0            ; 0                ; 0                ; 0                 ; 0                  ; 0                  ; 0           ; 1           ;
++--------------------+-----------+--------------+--------------+------------------+------------------+-------------------+--------------------+--------------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------+
+; State Machine - |pbl2_sd|receiver:receiver_0|state  ;
++-------------+-------------+------------+------------+
+; Name        ; state.START ; state.STOP ; state.DATA ;
++-------------+-------------+------------+------------+
+; state.START ; 0           ; 0          ; 0          ;
+; state.DATA  ; 1           ; 0          ; 1          ;
+; state.STOP  ; 1           ; 1          ; 0          ;
++-------------+-------------+------------+------------+
+
+
++--------------------------------------------------------------------+
+; Registers Removed During Synthesis                                 ;
++-----------------------------------------------+--------------------+
+; Register name                                 ; Reason for Removal ;
++-----------------------------------------------+--------------------+
+; dht11:dht11_0|state~2                         ; Lost fanout        ;
+; dht11:dht11_0|state~3                         ; Lost fanout        ;
+; dht11:dht11_0|state~4                         ; Lost fanout        ;
+; sensor_controller:sensor_controller_0|state~4 ; Lost fanout        ;
+; sensor_controller:sensor_controller_0|state~5 ; Lost fanout        ;
+; sensor_controller:sensor_controller_0|state~6 ; Lost fanout        ;
+; sensor_controller:sensor_controller_0|state~7 ; Lost fanout        ;
+; Total Number of Removed Registers = 7         ;                    ;
++-----------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 337   ;
+; Number of registers using Synchronous Clear  ; 88    ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 213   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; transmitter:transmitter_0|counter[1]   ; 4       ;
+; transmitter:transmitter_0|counter[0]   ; 4       ;
+; transmitter:transmitter_0|counter[2]   ; 2       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |pbl2_sd|sensor_controller:sensor_controller_0|counter[25] ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |pbl2_sd|sensor_controller:sensor_controller_0|data_out[0] ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; Yes        ; |pbl2_sd|sensor_controller:sensor_controller_0|data_out[3] ;
+; 15:1               ; 32 bits   ; 320 LEs       ; 32 LEs               ; 288 LEs                ; Yes        ; |pbl2_sd|dht11:dht11_0|counter[19]                         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |pbl2_sd|transmitter:transmitter_0|counter[0]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clock_divider:divider_0 ;
++----------------+------------------------------+----------------------+
+; Parameter Name ; Value                        ; Type                 ;
++----------------+------------------------------+----------------------+
+; DIVISOR        ; 0000000000000001010001011000 ; Unsigned Binary      ;
++----------------+------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: receiver:receiver_0 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; START          ; 0     ; Signed Integer                          ;
+; DATA           ; 1     ; Signed Integer                          ;
+; STOP           ; 2     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sensor_controller:sensor_controller_0 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; SLEEP          ; 0     ; Signed Integer                                            ;
+; AWAKE          ; 1     ; Signed Integer                                            ;
+; WAIT_ADDRESS   ; 2     ; Signed Integer                                            ;
+; WAIT_COMMAND   ; 3     ; Signed Integer                                            ;
+; WAIT_SENSOR    ; 4     ; Signed Integer                                            ;
+; STORE_DATA     ; 5     ; Signed Integer                                            ;
+; START_DATA     ; 6     ; Signed Integer                                            ;
+; BYTE_1         ; 7     ; Signed Integer                                            ;
+; BYTE_2         ; 8     ; Signed Integer                                            ;
+; END            ; 9     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clock_divider1mhz:comb_3 ;
++----------------+------------------------------+-----------------------+
+; Parameter Name ; Value                        ; Type                  ;
++----------------+------------------------------+-----------------------+
+; DIVISOR        ; 0000000000000000000000110010 ; Unsigned Binary       ;
++----------------+------------------------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dht11:dht11_0 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; IDLE           ; 0     ; Signed Integer                    ;
+; START_0        ; 1     ; Signed Integer                    ;
+; START_1        ; 2     ; Signed Integer                    ;
+; RESPONCE       ; 3     ; Signed Integer                    ;
+; SYNC_0         ; 4     ; Signed Integer                    ;
+; SYNC_1         ; 5     ; Signed Integer                    ;
+; DATA           ; 6     ; Signed Integer                    ;
+; STOP           ; 7     ; Signed Integer                    ;
+; ERROR          ; 8     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: transmitter:transmitter_0 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; START          ; 0     ; Signed Integer                                ;
+; DATA           ; 1     ; Signed Integer                                ;
+; STOP           ; 2     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 5                           ;
+; cycloneiii_ff         ; 337                         ;
+;     CLR               ; 14                          ;
+;     ENA               ; 178                         ;
+;     ENA CLR           ; 2                           ;
+;     ENA SCLR          ; 32                          ;
+;     ENA SLD           ; 1                           ;
+;     SCLR              ; 56                          ;
+;     plain             ; 54                          ;
+; cycloneiii_io_obuf    ; 1                           ;
+; cycloneiii_lcell_comb ; 627                         ;
+;     arith             ; 209                         ;
+;         2 data inputs ; 209                         ;
+;     normal            ; 418                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 87                          ;
+;         3 data inputs ; 48                          ;
+;         4 data inputs ; 275                         ;
+;                       ;                             ;
+; Max LUT depth         ; 11.20                       ;
+; Average LUT depth     ; 5.21                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri May 27 16:51:40 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pbl2_sd -c pbl2_sd
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file pbl2_sd.v
+    Info (12023): Found entity 1: pbl2_sd File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.v
+    Info (12023): Found entity 1: clock_divider File: /home/aluno/Documentos/pbl2_sd/clock_divider.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clock_divider1mhz.v
+    Info (12023): Found entity 1: clock_divider1mhz File: /home/aluno/Documentos/pbl2_sd/clock_divider1mhz.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file dht11.v
+    Info (12023): Found entity 1: dht11 File: /home/aluno/Documentos/pbl2_sd/dht11.v Line: 1
+    Info (12023): Found entity 2: tris File: /home/aluno/Documentos/pbl2_sd/dht11.v Line: 190
+Info (12021): Found 1 design units, including 1 entities, in source file receiver.v
+    Info (12023): Found entity 1: receiver File: /home/aluno/Documentos/pbl2_sd/receiver.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file transmitter.v
+    Info (12023): Found entity 1: transmitter File: /home/aluno/Documentos/pbl2_sd/transmitter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sensor_controller.v
+    Info (12023): Found entity 1: sensor_controller File: /home/aluno/Documentos/pbl2_sd/sensor_controller.v Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at pbl2_sd.v(52): instance has no name File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 52
+Info (12127): Elaborating entity "pbl2_sd" for the top level hierarchy
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:divider_0" File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 17
+Info (12128): Elaborating entity "receiver" for hierarchy "receiver:receiver_0" File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 29
+Info (12128): Elaborating entity "sensor_controller" for hierarchy "sensor_controller:sensor_controller_0" File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 45
+Warning (10036): Verilog HDL or VHDL warning at sensor_controller.v(33): object "address" assigned a value but never read File: /home/aluno/Documentos/pbl2_sd/sensor_controller.v Line: 33
+Info (12128): Elaborating entity "clock_divider1mhz" for hierarchy "clock_divider1mhz:comb_3" File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 52
+Info (12128): Elaborating entity "dht11" for hierarchy "dht11:dht11_0" File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 62
+Info (12128): Elaborating entity "tris" for hierarchy "dht11:dht11_0|tris:tris_0" File: /home/aluno/Documentos/pbl2_sd/dht11.v Line: 33
+Info (12128): Elaborating entity "transmitter" for hierarchy "transmitter:transmitter_0" File: /home/aluno/Documentos/pbl2_sd/pbl2_sd.v Line: 71
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "dht11:dht11_0|tris:tris_0|dht_in" to the node "dht11:dht11_0|always0" into an OR gate File: /home/aluno/Documentos/pbl2_sd/dht11.v Line: 198
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 676 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 671 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 435 megabytes
+    Info: Processing ended: Fri May 27 16:51:47 2022
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:13
+
+

@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "out",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_pin",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50mhz",
+					"strict" : false
+				},
+				{
+					"name" : "in",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
