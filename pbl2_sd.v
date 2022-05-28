@@ -46,7 +46,7 @@ sensor_controller sensor_controller_0(
 wire clk_1mhz;
 
 //Divisor de clock para 1Mhz
-clock_divider1mhz(
+clock_divider1mhz divider_1(
 	.clk_50mhz(clk_50mhz),
 	.clk_1mhz(clk_1mhz)
 );
