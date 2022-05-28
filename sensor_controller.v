@@ -60,6 +60,7 @@ else
 			end
 		WAIT_ADDRESS:
 			begin
+				//Espera o enderesso enviado pela serial
 				start <= 1'b0;
 				if(data_received) begin
 					address[0:7] <= data_in[0:7];
@@ -70,6 +71,7 @@ else
 			end
 		WAIT_COMMAND:
 			begin
+				//Espera o Comando enviado pela serial
 				if(data_received) begin
 					command[0:7] <= data_in[0:7];
 					start_sensor <= 1'b1;
@@ -101,6 +103,7 @@ else
 		START_DATA:
 			begin
 				start<=1'b1;
+				//Verifica qual opção foi enviada e retorna o código correspondente.
 				if (command == 8'b00000100) begin
 					data_out[0:7] = 8'b00000010;
 				end else if (command == 8'b00000101) begin
@@ -117,7 +120,8 @@ else
 		BYTE_1:
 			begin
 				if(counter > 9) begin
-					//start<=1'b1;
+					//Envia o primeiro byte do dado, sendo este
+					//Temperatura ou humidade
 					if (command == 8'b00000101) begin
 						data_out[0:7] = humidity[0:7];
 					end else begin
@@ -126,7 +130,6 @@ else
 					counter = 0;
 					state <= BYTE_2;
 				end else begin
-					//start<=1'b0;
 					counter = counter + 1;
 					state <= BYTE_1;
 				end
@@ -134,7 +137,7 @@ else
 		BYTE_2:
 			begin
 				if(counter > 9) begin
-					//start<=1'b1;
+					//Envia o segundo byte do dado, sendo este
 					if (command == 8'b00000101) begin
 						data_out[0:7] = humidity[8:15];
 					end else begin
@@ -143,7 +146,6 @@ else
 					counter = 0;
 					state <= END;
 				end else begin
-					//start<=1'b0;
 					counter = counter + 1;
 					state <= BYTE_2;
 				end
@@ -151,12 +153,11 @@ else
 		END:
 			begin
 				if(counter > 9) begin
-					//start<=1'b1;
+					//Envia o byte de finalização
 					data_out[0:7] = 8'b11110000;
 					counter = 0;
 					state <= SLEEP;
 				end else begin
-					//start<=1'b0;
 					counter = counter + 1;
 					state <= END;
 				end
